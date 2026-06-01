@@ -136,7 +136,6 @@ class TTTensor:
             )
 
         indices = tuple(indices)
-
         for index, dim in zip(indices, self.shape):
             if index < 0 or index >= dim:
                 raise IndexError(f"Индекс {index} выходит за границы размера {dim}")

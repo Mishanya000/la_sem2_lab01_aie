@@ -135,7 +135,6 @@ def tt_hadamard(
     """
     if tt1.shape != tt2.shape:
         raise ValueError(f"формы тензоров не совпадают: {tt1.shape} != {tt2.shape}")
-
     if tt1.order != tt2.order:
         raise ValueError("порядки тензоров не совпадают")
 

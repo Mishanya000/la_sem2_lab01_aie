@@ -165,7 +165,6 @@ def _truncate_rows(
     """
     if matrix.ndim != 2:
         raise ValueError("ожидает 2D матрицу")
-
     m, n = matrix.shape
     if rank < 0 or rank > m:
         raise ValueError(f"некорректный rank={rank} для матрицы {matrix.shape}")

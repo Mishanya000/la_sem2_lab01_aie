@@ -348,7 +348,6 @@ class DenseTensor:
             return NotImplemented
 
         data = [scalar * x for x in self.data]
-
         return DenseTensor(self.shape, data=data)
 
     def __rmul__(self, scalar: float | int) -> DenseTensor:

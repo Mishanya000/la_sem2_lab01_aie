@@ -84,7 +84,6 @@ def _compute_rank(
     """
     if S.ndim != 1:
         raise ValueError("ожидает 1D вектор")
-
     k = S.shape[0]
     if k == 0:
         return 1

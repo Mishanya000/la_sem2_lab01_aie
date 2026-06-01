@@ -27,7 +27,6 @@ def validate_shape(
         raise TypeError("shape должен быть tuple или list")
     if len(shape) == 0:
         raise ValueError("shape не может быть пустым")
-
     result: list[int] = []
     for dim in shape:
         if not isinstance(dim, int):
