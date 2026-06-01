@@ -125,8 +125,12 @@ class DenseTensor:
         Args:
             nested: список
         """
+
+        def is_sequence(obj) -> bool:
+            return isinstance(obj, (list, tuple))
+
         def infer_shape(obj) -> tuple[int, ...]:
-            if not isinstance(obj, list):
+            if not is_sequence(obj):
                 return ()
 
             if len(obj) == 0:
@@ -140,7 +144,7 @@ class DenseTensor:
             return (len(obj),) + first_shape
 
         def flatten(obj, result: list[float]) -> None:
-            if isinstance(obj, list):
+            if is_sequence(obj):
                 for item in obj:
                     flatten(item, result)
             else:
@@ -316,10 +320,12 @@ class DenseTensor:
         Args:
             other: t2
         """
-        if not isinstance(other, DenseTensor):
+        if not hasattr(other, "shape") or not hasattr(other, "data"):
             return NotImplemented
+
         check_shapes_match(self.shape, other.shape)
-        data = [a+b for a, b in zip(self.data, other.data)]
+        data = [a + b for a, b in zip(self.data, other.data)]
+
         return DenseTensor(self.shape, data=data)
 
     def __sub__(self, other: DenseTensor) -> DenseTensor:
@@ -329,11 +335,11 @@ class DenseTensor:
         Args:
             other: t2
         """
-        if not isinstance(other, DenseTensor):
+        if not hasattr(other, "shape") or not hasattr(other, "data"):
             return NotImplemented
 
         check_shapes_match(self.shape, other.shape)
-        data = [a-b for a, b in zip(self.data, other.data)]
+        data = [a - b for a, b in zip(self.data, other.data)]
 
         return DenseTensor(self.shape, data=data)
 
@@ -368,10 +374,10 @@ class DenseTensor:
     # ────────────────────────────────────────────
 
     def allclose(
-        self,
-        other: DenseTensor,
-        atol: float = 1e-8,
-        rtol: float = 1e-5
+            self,
+            other: DenseTensor,
+            atol: float = 1e-8,
+            rtol: float = 1e-5
     ) -> bool:
         """
         Возвращает True, если тензоры равны с заданной точностью.
@@ -386,7 +392,7 @@ class DenseTensor:
             atol:  абсолютная погрешность (по умолчанию 1e-8)
             rtol:  относительная погрешность (по умолчанию 1e-5)
         """
-        if not isinstance(other, DenseTensor):
+        if not hasattr(other, "shape") or not hasattr(other, "data"):
             return False
 
         if self.shape != other.shape:
