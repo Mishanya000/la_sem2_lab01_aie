@@ -35,7 +35,6 @@ def validate_shape(
         if dim <= 0:
             raise ValueError("все элементы shape должны быть положительными")
         result.append(dim)
-
     return tuple(result)
 
 

@@ -143,7 +143,6 @@ def _truncate_columns(
     m, n = matrix.shape
     if rank < 0 or rank > n:
         raise ValueError(f"некорректный rank={rank} для матрицы {matrix.shape}")
-
     result = backend.zeros((m, rank))
     for i in range(m):
         for j in range(rank):

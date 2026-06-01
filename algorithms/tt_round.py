@@ -59,7 +59,6 @@ def tt_round(
         next_core = cores[k + 1]
         _, next_n, next_r = next_core.shape
         next_matrix = backend.reshape(next_core, (r_right, next_n * next_r))
-
         updated_next = backend.matmul(transfer, next_matrix)
         cores[k + 1] = backend.reshape(updated_next, (rank, next_n, next_r))
     return TTTensor(cores)

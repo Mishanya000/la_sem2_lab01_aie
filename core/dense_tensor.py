@@ -318,7 +318,6 @@ class DenseTensor:
         """
         if not isinstance(other, DenseTensor):
             return NotImplemented
-
         check_shapes_match(self.shape, other.shape)
         data = [a+b for a, b in zip(self.data, other.data)]
         return DenseTensor(self.shape, data=data)

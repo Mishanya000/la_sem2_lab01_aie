@@ -114,7 +114,6 @@ class TTTensor:
         for k in range(d):
             core_shape = (full_ranks[k], shape[k], full_ranks[k + 1])
             cores.append(DenseTensor.random(core_shape, seed=None if seed is None else seed + k))
-
         return TTTensor(cores)
 
     # ────────────────────────────────────────────

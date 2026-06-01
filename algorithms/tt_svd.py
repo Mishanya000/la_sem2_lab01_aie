@@ -62,7 +62,6 @@ def tt_svd(
 
         C = _multiply_diag_matrix(S_trunc, Vt_trunc, rank, backend)
         r_prev = rank
-
     last_core = backend.reshape(C, (r_prev, shape[-1], 1))
     cores.append(last_core)
     return TTTensor(cores)

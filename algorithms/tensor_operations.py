@@ -118,7 +118,6 @@ def tt_scalar_mul(
     """
     cores = [backend.copy(core) for core in tt.cores]
     cores[0] = backend.scale(cores[0], alpha)
-
     return TTTensor(cores)
 
 
