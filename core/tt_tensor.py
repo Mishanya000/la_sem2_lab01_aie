@@ -110,7 +110,6 @@ class TTTensor:
         for rank in full_ranks:
             if not isinstance(rank, int) or rank <= 0:
                 raise ValueError("Все ранги должны быть положительными")
-
         cores = []
         for k in range(d):
             core_shape = (full_ranks[k], shape[k], full_ranks[k + 1])

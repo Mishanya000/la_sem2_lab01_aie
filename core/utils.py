@@ -25,7 +25,6 @@ def validate_shape(
     """
     if not isinstance(shape, (tuple, list)):
         raise TypeError("shape должен быть tuple или list")
-
     if len(shape) == 0:
         raise ValueError("shape не может быть пустым")
 

@@ -99,7 +99,6 @@ def tt_add(
                         ] = core2[b_left, i, b_right]
 
         cores.append(result)
-
     return TTTensor(cores)
 
 

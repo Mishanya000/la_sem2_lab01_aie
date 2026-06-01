@@ -65,7 +65,6 @@ def tt_svd(
 
     last_core = backend.reshape(C, (r_prev, shape[-1], 1))
     cores.append(last_core)
-
     return TTTensor(cores)
 
 

@@ -321,7 +321,6 @@ class DenseTensor:
 
         check_shapes_match(self.shape, other.shape)
         data = [a+b for a, b in zip(self.data, other.data)]
-
         return DenseTensor(self.shape, data=data)
 
     def __sub__(self, other: DenseTensor) -> DenseTensor:

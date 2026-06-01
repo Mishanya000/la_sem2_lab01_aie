@@ -148,7 +148,6 @@ def _truncate_columns(
     for i in range(m):
         for j in range(rank):
             result[i, j] = matrix[i, j]
-
     return result
 
 
